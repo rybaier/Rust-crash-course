@@ -27,7 +27,7 @@ ALL STATEMENTS END IN SEMICOLONS!!!
 - define using - fn -
     - use snake_case
     - function parameters defined by name : type
-    - use arrow -> to identify return type 
+    - use arrow -> to identify return type MUST DO THIS to gain a return value
 
 ##### Module System
 
@@ -68,3 +68,76 @@ ALL STATEMENTS END IN SEMICOLONS!!!
     - limited to a size of 32 before losing functionality
 
 - Vectors
+
+###### Control Flow
+- if expression
+    - no ; after branch values
+    - no return used 
+- no terinary operator ? 
+- loop 
+    - unconditional loop
+        - requires break statement to exit loop
+        - breaking out of a nested loop
+            - annotate beginning of first loop for which loop you want to break out of
+                - annotate with single apostrophe at beginning 
+                - ex 'bob: loop {
+                    loop {
+                        break 'bob'
+                    }
+                }
+    - conditional loop
+        - doesn't need a break statement
+        - can use continue to repeat the loop
+    - syntax loops
+        - while 
+        - for 
+            - .iter() - iterates over values
+            - can take a pattern
+                - ex: 
+                - let array = [(1, 2), (3, 4)]
+                - for (x,y) in array.iter(){}
+            - can chain options 
+                - map, dot, etc
+            - range 
+                - start is inclusive end is exclusive 
+                - for num in 0..50
+                    - use 2 dots to specify range 
+                - for num in 0..=50
+                    - add equal sign to include end value
+###### Strings
+- str slice types
+    - &str - borrowed string slice
+        - can not be modified
+        - subset of a string
+        - valid UTF-8
+    - String - acutal string slice
+        - can be modified
+        - valid UTF-8
+###### Ownership
+- makes informative compiler messages possible
+- 3 rules to Ownership
+    - Each value has an owner
+    - there is only one owner
+    - value gets dropped when the owner goes out of scope
+
+###### References & Borrowing
+- Lifetimes
+    - rule that References must always be valid
+- can be mutable 
+    - syntax -  &mut
+- dereference 
+    - must be done manually
+    - *s
+- types can also be reference
+    - 
+- rules
+    - either 1 mutable reference 
+    - or
+    - any number of immutable references
+
+
+
+#### Methods discussed 
+- iter()
+- clone()
+- insert_str()

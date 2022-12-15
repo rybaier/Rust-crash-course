@@ -4,3 +4,7 @@ functions/Cargo.lock
 variables/Cargo.lock
 simple_types/target
 simple_types/Cargo.lock
+control_flow_strings/target
+control_flow_strings/Cargo.lock
+ownership_references/target
+ownership_references/Cargo.lock
