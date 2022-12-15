@@ -49,3 +49,22 @@ ALL STATEMENTS END IN SEMICOLONS!!!
     - specified by char
 
 ###### Compound Types
+- Tuple 
+    - store multiple values of any type
+    - () with comma seperated values and types
+        - ex: let info: (u8,f64,i32) = (1, 3.3, 999);
+    - use dot syntax to access
+    - or destructure
+    - tuples have a maximum arrity of 12 
+        - above 12 you lose functionality
+    - arrity = how many items in tuple
+- Array
+    - multiple values of same type
+    - specify type and number of values in array 
+    - specify either 
+        - literally - let buf = [1, 2, 3];
+        - or with a value and how many you want - let buf = [0; 3];
+        - types are always seperated with ; and you must define number of values - let buf [u8; 3] = [1, 2, 3];
+    - limited to a size of 32 before losing functionality
+
+- Vectors
