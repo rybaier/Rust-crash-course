@@ -3,6 +3,11 @@ My source code for the Udemy Rust Course with Nathan Stocks
 
 ## My Course Notes
 ALL STATEMENTS END IN SEMICOLONS!!!
+
+### Rust cli
+- cargo run - runs file
+- cargo new - creates new rust project
+
 ###### Variables
  - use - let -  to initialize variable
     - variables are immutable by default
@@ -19,6 +24,7 @@ ALL STATEMENTS END IN SEMICOLONS!!!
 
 ###### Scope
 - no garbage collector 
+- scope operator is double colons ::
 
 ###### Memory Safety
 - as long as compiler can guarentee something is safe it will let you do it 
@@ -135,9 +141,112 @@ ALL STATEMENTS END IN SEMICOLONS!!!
     - or
     - any number of immutable references
 
+###### Structs
+- can have 
+    - data fields
+    - methods
+    - associated functions 
+- syntax 
+    - call with struct
+        - in capital-camel case 
+        - struct RedFox {
+            enemy: bool,
+            life: u8,
+        }
+    - methods and associated functions
+        -  defined in implementation block
+        - Self can be used to replace struct name inside of block
+        - impl RedFox{
+            fn new() -> Self {
+                Self {
+                    enemy: true,
+                    life: 70,
+                }
+            }
+        }
+
+- no struct inheritance
+###### Traits 
+- competence over inheritance 
+- trait Noisy {
+    fn get_noise(&self)
+}
+- traits can be used on any struct
+- special trait called Copy
+    - can not be used with heaps
+- traits can have inheritance
+- fields can not be defined in traits 
+
+###### Collections
+- Vec<T> - T = type
+    - 
+    - vector is a generic collection that holds a bunch of one type, and is useful for lists
+    - when you create a vector you specify one tupe of object that it will store in angle brackets
+    - you can push values into it
+    - vectors act like a stack
+        - so .push() appends to the end and .pop() removes the item from the end and returns it
+    - store objects of known size next  to each other in memory
+        - you can index into it
+        - Rust will panic if index is out of bounds
+    - use vec! as a prefix to create vectors from literal values   
+- HashMap<K, V> - K= Key, V = Value
+- let mut h: HashMap<u8, bool> = HashMap:: new()
+    - generic collection where you specify a type for the key and a type for the value
+    - you access the values by key
+    - in other languages called a dictionary
+- other collection types
+    - VecDeque 
+        - uses a ring buffer to implement a double-ended queue, which can efficiently add or remove items from the front and the back. everything else is less efficient than a vector
+    - LinkedList
+        - quick at adding or removiing items at an arbitrary point in the list. 
+    - HashSet
+        - hashing implementation of a set that performs set operations really efficiently
+    - BinaryHeap
+        - like a priority queue which always pops off the max value
+    - BTreeMap
+        - alternate map implementation using a modified binary tree
+    - BTreeSet
+        - alternate set implementation using a modified binary tree
+
+###### Enums
+- Algebraic Data Types
+- specify enum by 
+    - keywork enum, name of the enum capital camel-case and the names of variants in a block
+        - enum Color {
+            Red, 
+            Green,
+            Blue,
+        }
+        - let color = Color::Red
+- power of enum
+    - comes from associating data and methods with the variants
+    - can have a named variant with no data 
+    - a variant can have a single type of data, a tuple of data, or an anonymous struct of data
+    - it's like a union in C
+- Option is a standard library generic enum
+    - enum Option<T> {
+        Some(T),
+        None,
+    }
+    - read all the methods for option
+- Result a generic enum in the standard library
+    - used whenever somehting might have a useful result or might have an error
+    - #[must_use]enum Result<T, E> {
+        Ok(T),
+        Err(E),
+    }
 
 
-#### Methods discussed 
+
+#### Methods mentioned 
 - iter()
 - clone()
 - insert_str()
+- match expression
+    - require you to write a branch arm for every possible outcome
+- is_some()
+- is_none()
+- unwrap()
+- expect()
+- is_ok()
+- is_err()

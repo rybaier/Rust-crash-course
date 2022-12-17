@@ -8,3 +8,9 @@ control_flow_strings/target
 control_flow_strings/Cargo.lock
 ownership_references/target
 ownership_references/Cargo.lock
+structs_traits/target
+structs_traits/Cargo.lock
+closure_threads/target
+closure_threads/Cargo.lock
+collections_enums/target
+collections_enums.Cargo.lock
