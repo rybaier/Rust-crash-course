@@ -236,7 +236,18 @@ ALL STATEMENTS END IN SEMICOLONS!!!
         Err(E),
     }
 
-
+###### Closures
+- an anonymous function that can borrow or capture some data from the scope it is nested in
+- the syntax is a parameter list between two pipes without type annotations followed by a block
+    - |x,y| {x + y}
+        - add(1,2); returns 3
+        - the types of the arguments and the return calue are all inferred from how you use the arguments and what you return
+- closures support move semantics 
+    - let f = move || {}        
+###### Threads
+- Rust Threading is portable
+    - works across Linux, Mac and Windows
+- use std::thread at top of file
 
 #### Methods mentioned 
 - iter()
@@ -250,3 +261,4 @@ ALL STATEMENTS END IN SEMICOLONS!!!
 - expect()
 - is_ok()
 - is_err()
+- thread::spawn()
