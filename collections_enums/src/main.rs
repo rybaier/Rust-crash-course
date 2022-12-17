@@ -105,4 +105,4 @@ fn get_arrow_coords(num: u32) -> Vec<Coord> {
         coords.push(coord);
     }
     coords
-}
+} 
