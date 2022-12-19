@@ -1,6 +1,6 @@
 # Ultimate Rust Crash Course with Nathan Stocks
 # Ultimate Rust Crash Course 2: Intermediate Concepts with Nathan Stocks
-My source code for the Udemy Rust Course with Nathan Stocks 
+All My source code for the Udemy Rust Courses with Nathan Stocks 
 
 ## My Course Notes
 ALL STATEMENTS END IN SEMICOLONS!!!
@@ -8,6 +8,13 @@ Always import files into the lib.rs! Before adding them to main.rs
 ### Rust cli
 - cargo run - runs file
 - cargo new - creates new rust project
+- cargo fmt - uses rustfmt to format the code.
+- cargo clippy - checks for specific problems to write better idiomatic code
+- cargo doc - for building documentation html for project 
+    - cargo doc --no-deps --open 
+    - cargo doc --no-deps --open --document-private-items
+
+
 
 ###### Variables
  - use - let -  to initialize variable
@@ -178,7 +185,8 @@ Always import files into the lib.rs! Before adding them to main.rs
 - fields can not be defined in traits 
 
 ###### Collections
-- Vec<T> - T = type
+- Vec <T, T>  - T = type
+    - let army = Vec<Invader>
     - vector is a generic collection that holds a bunch of one type, and is useful for lists
     - when you create a vector you specify one tupe of object that it will store in angle brackets
     - you can push values into it
@@ -189,10 +197,10 @@ Always import files into the lib.rs! Before adding them to main.rs
         - Rust will panic if index is out of bounds
     - use vec! as a prefix to create vectors from literal values   
 - HashMap<K, V> - K= Key, V = Value
-- let mut h: HashMap<u8, bool> = HashMap:: new()
-    - generic collection where you specify a type for the key and a type for the value
-    - you access the values by key
-    - in other languages called a dictionary
+    - let mut h: HashMap<u8, bool> = HashMap:: new()
+        - generic collection where you specify a type for the key and a type for the value
+        - you access the values by key
+        - in other languages called a dictionary
 - other collection types
     - VecDeque 
         - uses a ring buffer to implement a double-ended queue, which can efficiently add or remove items from the front and the back. everything else is less efficient than a vector
@@ -257,7 +265,43 @@ Always import files into the lib.rs! Before adding them to main.rs
 - is_some()
 - is_none()
 - unwrap()
+- unwrap_or()
 - expect()
 - is_ok()
 - is_err()
 - thread::spawn()
+
+### Course 2 
+###### Idiomatic 
+- rustfmt
+    - cargo fmt
+- clippy
+    - cargo clippy
+        - style
+        - correctness
+        - Complexity
+        - Performance
+- attributes
+    - #[allow(clippy::too_many_arguments)]
+###### Documentation
+- cargo doc
+  - cargo doc --no-deps --open
+    - --no-deps makes it so you only generate your library's documentation without
+      generating all the documentation for all of your dependencies.
+    - --open automatically opens the index page of the generated documentation in your default browser.
+        - can also access by going to target/doc/packagename/index.html
+- documentation comments are noted by 
+    - line based documentation comments
+        - /// then the comments 
+    - Block based documentation comments
+        - /**  **/
+    - rest of the markdown features are the same except for a couple things
+    - outer documentation comments
+        - used for everything that inner documentation isnt used for
+    - inner documentation comments
+        - used for libraries and modules
+        - //!
+        - /*! !*/
+    - structs
+        - you document the struct as a whole at the top
+        - the fields are documented serperately
