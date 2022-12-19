@@ -178,8 +178,7 @@ Always import files into the lib.rs! Before adding them to main.rs
 - fields can not be defined in traits 
 
 ###### Collections
-- Vec<Type> - T = type
-    - 
+- Vec<T> - T = type
     - vector is a generic collection that holds a bunch of one type, and is useful for lists
     - when you create a vector you specify one tupe of object that it will store in angle brackets
     - you can push values into it
