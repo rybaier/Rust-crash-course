@@ -1,9 +1,10 @@
-# Rust Crash Course with Nathan Stocks
+# Ultimate Rust Crash Course with Nathan Stocks
+# Ultimate Rust Crash Course 2: Intermediate Concepts with Nathan Stocks
 My source code for the Udemy Rust Course with Nathan Stocks 
 
 ## My Course Notes
 ALL STATEMENTS END IN SEMICOLONS!!!
-
+Always import files into the lib.rs! Before adding them to main.rs
 ### Rust cli
 - cargo run - runs file
 - cargo new - creates new rust project
@@ -135,7 +136,6 @@ ALL STATEMENTS END IN SEMICOLONS!!!
     - must be done manually
     - *s
 - types can also be reference
-    - 
 - rules
     - either 1 mutable reference 
     - or
@@ -178,7 +178,7 @@ ALL STATEMENTS END IN SEMICOLONS!!!
 - fields can not be defined in traits 
 
 ###### Collections
-- Vec<T> - T = type
+- Vec<Type> - T = type
     - 
     - vector is a generic collection that holds a bunch of one type, and is useful for lists
     - when you create a vector you specify one tupe of object that it will store in angle brackets
