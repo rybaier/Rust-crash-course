@@ -28,9 +28,9 @@
 /// recipes will be coming soon
 pub struct Pumpkin {
   
-    /// a percentage
+    /// `roundness` is a percentage
     pub roundness: f32,
-    /// a number that is from 8 ti 27
+    /// `orangeness` is a number that is from 8 to 27
     pub orangeness: i32,
 }
 
@@ -38,13 +38,13 @@ pub struct Pumpkin {
 // can't be used for pie. :'-(
 
 impl Pumpkin {
-    /// if you smash the pumpkin, it will be gone then it can't be used for pie!
+    /// if you smash the pumpkin, it will be gone then it can't be used for pie!😂
     pub fn smash(self) {}
 }
 
 // 5. Document that BURNT_ORANGE is for the "orangeness" field in the Pumpkin struct.
 // - Link to the Pumpkin struct in your description
-/// is for the orangeness field in the pumpkin struct
+/// `BURNT_ORANGE` is for the orangeness field in the [Pumpkin] struct
 pub const BURNT_ORANGE: i32 = 13;
 
 // Challenge: Find the option to pass to `cargo doc` so that documentation for this private item
