@@ -13,6 +13,7 @@ Always import files into the lib.rs! Before adding them to main.rs
 - cargo doc - for building documentation html for project 
     - cargo doc --no-deps --open 
     - cargo doc --no-deps --open --document-private-items
+- cargo login - for registering access tokens
 
 
 
@@ -305,3 +306,29 @@ Always import files into the lib.rs! Before adding them to main.rs
     - structs
         - you document the struct as a whole at the top
         - the fields are documented serperately
+
+###### Publishing 
+- publishing a package on crates.io
+    - publishing is PERMANENT!!!!!
+    - Beware of passwords ssh keys or access tokens
+    - don't publish useless packages 
+    - package names need to be unique!
+- how to publish   
+    - login to crates.io
+    - open drop down menu go to account settings and click on API access
+        - create an access token 
+        - run cargo login on machine and enter the access token you created
+- package 
+    - only a name and version are required to publish a package but should configure with the additional settings
+- example 
+    - [package]
+    - name = "rusty_engine" 
+    - version = "2.0.0"
+    - description = "Learn Rust with a simple cross-platform, 2D game engine"
+    - edition = "2021"
+    - homepage = "https://github.com/CleanCut/rusty_engine" 
+    - repository = "https://github.com/CleanCut/rusty_engine" 
+    - readme = "README.md"
+    - keywords = ["game", "engine", "graphics", "audio", "rusty"]
+    - categories ["game-engines"]
+    - license = "MIT OR Apache-2.0"
