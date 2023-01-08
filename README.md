@@ -360,3 +360,44 @@ Always import files into the lib.rs! Before adding them to main.rs
 - .into_iter() - consumes and returns owned items
     - v.into_iter() or for _ in v
 - .drain() - takes different arguments depending on which collection you are looking at, in all cases it returns an iterator that takes ownership of some or all items in the collection, removing those items from the collection but leaves the collection intact so you can continue to use it 
+
+###### Traits
+- 4 things can implement a trait
+    - structs
+    - enums
+    - closures 
+    - functions
+- Derivable traits
+    - #[derive(Debug)]
+    - Debug - debug formatting and Pretty Debug formatting
+        - normal debug formatting attempts to create a one-line description of the struc or enum that looks similar to its definition
+                - println!("{:?}", puzzle); // Normal Debug
+                - println!("{:#?}", puzzle); // Pretty Debug
+    - Clone - implementing this trait allows value to be cloned by calling the clone method 
+    - Copy - if your type implements Copy then it will be copied instead of moved in move situations 
+        - used for small values that fit entirely on the stack
+            - integers, floats, booleans
+            - heaps cannot implement Copy
+- Implementing traits
+    - 4 steps for implenting traits
+        - Bring the Trait into the Scope
+        - Boilerplate
+        - Implentation
+    - common traits
+        - Default
+            - can be derived
+            - sets default values
+        - PartialEq - partial equal
+            - trait that does the actual calculations to test for equality
+        - Eq - equal
+            - marker trait that you can implement if the equality logic os reflexive, transitive and symmetric
+        - From / Into
+            - a pair of traits
+            - From
+                - if you implement From then Into automatically gets implemented for you
+                - From< T > for U
+            - Into
+                - Into< U > for T
+            - They describe the same transformation between two types but from different viewpoints
+            - From < Puzzle > for String
+            - Into < String > for Puzzle
