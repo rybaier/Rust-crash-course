@@ -259,6 +259,7 @@ Always import files into the lib.rs! Before adding them to main.rs
 
 #### Methods mentioned 
 - iter()
+- into_iter()
 - clone()
 - insert_str()
 - match expression
@@ -332,3 +333,30 @@ Always import files into the lib.rs! Before adding them to main.rs
     - keywords = ["game", "engine", "graphics", "audio", "rusty"]
     - categories ["game-engines"]
     - license = "MIT OR Apache-2.0"
+
+###### Iterators part II
+- into_iter()
+    - returns an iterator which takes ownership of the collection it is implemented on
+    - ex. let v = vec![6, 7, 8];
+        - v.into_iter().for_each(|num| println!("{}", num));
+    - iterartors are typically faster than for loops
+- iterator adaptors
+    - tool that takes an iterator and outputs a different iterator
+    - .map()
+    - .filter()
+    - into_iterator()
+    - all iterator adaptors are documented
+- iterator consumer 
+    - consumes the final iterator causing the chain of iterator adaptors to to do their processing
+    - .for_each()
+    - .sum() needs to know type of value
+    - .collect() - needs to know type of container
+    - turbo fish ::<>
+        - ex. .sum::<i32> 
+- .iter_mut() - returns mutable references 
+    - v.iter_mut() or for _ in &mut v
+- .iter() - returns immutable references
+    - v.iter() or for _ in v
+- .into_iter() - consumes and returns owned items
+    - v.into_iter() or for _ in v
+- .drain() - takes different arguments depending on which collection you are looking at, in all cases it returns an iterator that takes ownership of some or all items in the collection, removing those items from the collection but leaves the collection intact so you can continue to use it 
