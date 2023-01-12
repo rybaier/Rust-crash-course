@@ -479,3 +479,26 @@ Always import files into the lib.rs! Before adding them to main.rs
         - each macro represents a level of logging in descending priority
             - all messages of equal or higher priority to the log level that is set will be sent
 - must use a logger to direct the output of log levels
+
+###### Multithreading
+- aka parallel processing
+- always join threads and exit cleanly when you can 
+
+###### Channels 
+- use crossbeam::channel
+- implement crossbeam and version number in Cargo.toml dependencies
+- 2 types of channels
+    - channel::bounded()
+        - has a fixed capacity
+        - once channel is gull the sending thread will block if it tries to send another value through the channel. 
+            - sending thread will resume once the reciever thread pulls something out of the channel to lower is current state of capacity
+    - channel::unbounded()
+        - allows the channel to grow indefinitely(or until you run out of memory)
+        - great for handling burst heavy loads that won't max out memory capacity
+    - both types of channels can have multiple recievers and multiple senders
+        - each channel can only recieve or send at one time
+        - the flow only goes in one direction at a time
+        - best to run channels in acyclic direction to avoid channel blockage
+- channel is a one way queue
+- must satisfy the Send trait before anything can be sent through channel
+- 
