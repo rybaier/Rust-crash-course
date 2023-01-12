@@ -14,8 +14,25 @@ Always import files into the lib.rs! Before adding them to main.rs
     - cargo doc --no-deps --open 
     - cargo doc --no-deps --open --document-private-items
 - cargo login - for registering access tokens
-
-
+- cargo test - used for running tests. can run single test by providing direct path 
+    - cargo test test::test_name_here
+- cargo bench
+#### Methods mentioned 
+- iter()
+- into_iter()
+- clone()
+- insert_str()
+- match expression
+    - require you to write a branch arm for every possible outcome
+- is_some()
+- is_none()
+- unwrap()
+- unwrap_or()
+- expect()
+- is_ok()
+- is_err()
+- thread::spawn()
+- from_file()
 
 ###### Variables
  - use - let -  to initialize variable
@@ -257,21 +274,6 @@ Always import files into the lib.rs! Before adding them to main.rs
     - works across Linux, Mac and Windows
 - use std::thread at top of file
 
-#### Methods mentioned 
-- iter()
-- into_iter()
-- clone()
-- insert_str()
-- match expression
-    - require you to write a branch arm for every possible outcome
-- is_some()
-- is_none()
-- unwrap()
-- unwrap_or()
-- expect()
-- is_ok()
-- is_err()
-- thread::spawn()
 
 ### Course 2 
 ###### Idiomatic 
@@ -401,3 +403,62 @@ Always import files into the lib.rs! Before adding them to main.rs
             - They describe the same transformation between two types but from different viewpoints
             - From < Puzzle > for String
             - Into < String > for Puzzle
+
+###### Errors
+- errors should be enums
+- group errors - group your errors as variants of as few enums as makes sense
+- only return your errors from your public library
+    - exception is passing std library errors if it makes sense
+-  include non-exhaustive
+   - #[non-exhaustive]
+- Implement Debug + Display + Error Traits in that order
+    - Error is a sub trait of Debug and Display so you must implement those traits first before implementing the Error trait
+- thiserror package/crate
+    - a derive macro that will implement both the Display and Error traits
+    - use thiserror::Error;
+    - #[error("Error message")] goes in error enum
+- Handling Errors
+    - Non-Recoverable Errors
+        - panic!()
+        - .expect()
+        - .unwrap()
+    - Handle or return
+        - if let blocks
+        - match expressions
+        - ? operator
+        - anyhow package/crate
+        - eyre package/crate
+        - snafu package/crate
+
+###### Unit Tests 
+- about testing small units of code 
+    - TDD 
+- config attribute 
+    - controls conditional compilation of the item it applies to. 
+        - so we can choose when to compile specific modules when running tests
+        - use super lib with asterick when writing tests
+    - #[cfg(test)]
+    - mod test {
+        use super::*;
+        #[test]
+        test logic goes here
+    }
+    - assert_eq!() - takes 2 arguements that implement the Partial Eq trait fails if arguments are not equal
+    - assert_ne!()- takes 2 arguments that implement Eq trait fails if arguments are equal
+    - assert!() - forces you to do the comparison yourself to give the macro a boolean value. True passes, False fails the test 
+    - panic! - panicing fails the test
+        - unless you use #[should_panic]
+- can optionally return a result
+
+###### Integration Tests 
+- require tests directory 
+    - tests directory needs to be in root directory not in src 
+- tests a bunch of functions and structs and things all together to test the integration of multiple components 
+
+###### Benchmarks
+- dont benchmark on public CI servers
+- generate reports on runtime and outliers affecting runtime of files
+- always start with idiomatic code, then identify something that is slow, and then try to optimize it and measure what happens
+- Criterion 
+    - goes in [dev-dependencies] in Cargo.toml file
+    - import via use statment at top of benchmark file
