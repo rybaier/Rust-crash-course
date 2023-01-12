@@ -1,3 +1,4 @@
+#[inline]
 pub fn sploosh(x: i32, y: i32, z: i32) -> i32 {
     match (x, y, z) {
         (x, _, _) if x < 0 => 99,

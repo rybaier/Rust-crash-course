@@ -462,3 +462,20 @@ Always import files into the lib.rs! Before adding them to main.rs
 - Criterion 
     - goes in [dev-dependencies] in Cargo.toml file
     - import via use statment at top of benchmark file
+
+###### Logging
+- log 
+    - library that forms the foundation for all rust logging
+    - add log under the dependencies in the Cargo.toml file
+    - bring log package into file with use statment
+        - use log::{error, warn, info, debug, trace}
+        - ! is used for calling the macros 
+            - error!() - Serious problems
+            - warn!() - Pay attention
+            - info!() - useful info
+            - debug!() - Extra info
+            - trace!() - all the things
+            - all calls work like println!()
+        - each macro represents a level of logging in descending priority
+            - all messages of equal or higher priority to the log level that is set will be sent
+- must use a logger to direct the output of log levels
