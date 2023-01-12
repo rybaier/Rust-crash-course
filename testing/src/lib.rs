@@ -23,7 +23,14 @@ mod test {
     // - sploosh(1, 2, 3) returns 4
     // - sploosh(5, 6, 7) does not return 4
     // - If you pass sploosh a negative number for the first argument, 99 is returned
-    //
+    #[test]
+    fn test_funtcion(){
+        assert_eq!(sploosh(1,2,3), 4);
+        assert_ne!(sploosh(5,6,7), 4);
+        assert!(sploosh(-1, 2,3) == 99);
+    }
+    
+
     // `cargo test` should run your tests and pass
     // Hint: Don't forget the `#[test]` attribute for your test function!
 
@@ -31,6 +38,12 @@ mod test {
     // - splish(100, 10) is negative
     // - splish(40, 20) is positive
     // - splish(9, 3) is 0
+    #[test]
+    fn test_funtcion2 () { 
+        assert!(splish(100, 10) < 0 );
+        assert!(splish(40, 20) > 0 );
+        assert!(splish(9,3) == 0);
+    }
 }
 
 // 5. Create a `tests/` directory and an integration test file `tests/more_tests.rs`
