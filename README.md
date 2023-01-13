@@ -17,6 +17,10 @@ Always import files into the lib.rs! Before adding them to main.rs
 - cargo test - used for running tests. can run single test by providing direct path 
     - cargo test test::test_name_here
 - cargo bench
+- cargo install 
+    - rusty_engine --example collider - allows to make colliders for sprite images
+        - run collider pathtofile/image.png
+
 #### Methods mentioned 
 - iter()
 - into_iter()
@@ -33,7 +37,7 @@ Always import files into the lib.rs! Before adding them to main.rs
 - is_err()
 - thread::spawn()
 - from_file()
-
+- Into< Pathbuf >
 ###### Variables
  - use - let -  to initialize variable
     - variables are immutable by default
@@ -501,4 +505,7 @@ Always import files into the lib.rs! Before adding them to main.rs
         - best to run channels in acyclic direction to avoid channel blockage
 - channel is a one way queue
 - must satisfy the Send trait before anything can be sent through channel
-- 
+
+### Rusty Engine
+- rusty_engine
+    - all framework for common setup for blank game screen inside documentation for rusty engine
