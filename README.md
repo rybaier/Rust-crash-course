@@ -1,5 +1,5 @@
-# Ultimate Rust Crash Course with Nathan Stocks
-# Ultimate Rust Crash Course 2: Intermediate Concepts with Nathan Stocks
+# Ultimate Rust Crash Course with Nathan Stocks - Course Completed
+# Ultimate Rust Crash Course 2: Intermediate Concepts with Nathan Stocks - Course Completed
 All My source code for the Udemy Rust Courses with Nathan Stocks 
 
 ## My Course Notes
